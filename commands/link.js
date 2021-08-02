@@ -7,7 +7,7 @@
  */
  module.exports = {
 	Name: 'hallo',
-	Execute(interaction, DiscordClient) {
+	Execute(interaction) {
 		const InteractionOption = interaction.options.getString('type');
 		const OptionMessage;
 
