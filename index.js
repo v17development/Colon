@@ -17,6 +17,7 @@ const FileSystem = require('fs');
 DotEnv.config();
 
 // Defineer bestandsmappen
+const RegistryFiles = FileSystem.readdirSync('./registry').filter(file => file.endsWith('.js'));
 const EventFiles = FileSystem.readdirSync('./events').filter(file => file.endsWith('.js'));
 const CommandFiles = FileSystem.readdirSync('./commands').filter(file => file.endsWith('.js'));
 const ActionFiles = FileSystem.readdirSync('./actions').filter(file => file.endsWith('.js'));
@@ -37,6 +38,7 @@ var DiscordIntents = [
  * Actie's: Parsed String (Voorbeeld: !deploy)
  */
 const DiscordClient = new Client({ intents: DiscordIntents})
+DiscordClient.Registry = RegistryFiles;
 DiscordClient.Commands = new Collection();
 DiscordClient.Actions = new Collection();
 

@@ -23,6 +23,8 @@ module.exports = {
         try {
             await DiscordClient.Commands.get(interaction.commandName).Execute(interaction, DiscordClient);
         } catch (catchedError) {
+            console.log(`Er ging wat fout bij het uitvoeren van de interactie ${interaction.commandName}: ${catchedError}`);
+            
             await interaction.reply({ 
                 content: 'Oh nee😞. Ik herken dit commando niet. Weet je zeker dat je het goed hebt getypt?',
                 ephemeral: true

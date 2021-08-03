@@ -2,30 +2,27 @@
  * Colon Bot
  * Action: deploy
  * 
- * Het commando dat er voor zorgt dat het "Deploy" commando wordt geregistreerd voor Elira. Vaak maar
- * eenmalig nodig. 
+ * Het commando dat er voor zorgt dat commando's worden geregistreerd of aangepast bij Discord.
  * 
  * Benodigd hiervoor zijn:
  * env.GUILD_ID
  * env.GUILD_SUPER_ROLE
  */
  module.exports = {
-	Name: 'hallo',
-	async Execute(interaction) {
-		const InteractionOption = interaction.options.getString('type');
-		var OptionMessage = null;
+	Name: 'deploy',
+	async Execute(message, DiscordClient) {
+		if(!message.member.roles.cache.has(process.env.GUILD_SUPER_ROLE)) return;
+		if(!DiscordClient.Registry) return;
 
-		// Berichtentype
-		if(InteractionOption === 'msg_welcome') {
-			OptionMessage = "Aangenaam kennis te maken en welkom in onze Server! Ben je al lid van ons forum https://devnl.nl?";
-		}else if(InteractionOption === 'msg_forum'){
-			OptionMessage = "Kan je deze vraag niet beter stellen op https://devnl.nl?";
-		}else{
-			OptionMessage = "Zo kom je bij DevNL! <https://ri.devnl.nl>";
-		}
+		for (const RegistryFile of DiscordClient.Registry) {
+			const Registry = require(`../registry/${RegistryFile}`);
 
-		// Verstuur bericht
-        const Message = `**Hallo👋!** ${OptionMessage}`;
-        interaction.reply(Message);
+			try {
+				await DiscordClient.guilds.cache.get(process.env.GUILD_ID)?.commands.create(Registry.RegistryData);
+			} catch (RegistryError) {
+				console.log(`De registry kon het commando ${Registry.Name} niet registreren: ${RegistryError}.`)
+			}
+			
+		}	
 	},
 };

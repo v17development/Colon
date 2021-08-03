@@ -17,7 +17,7 @@ module.exports = {
             if(!DiscordClient.Actions.has(RequestedAction)) return;
 
             try {
-                await DiscordClient.Actions.get(RequestedAction).Execute(RequestedAction);
+                await DiscordClient.Actions.get(RequestedAction).Execute(message, DiscordClient);
             } catch (catchedError) {
                 console.log(`Actie ${RequestedAction} mislukt: ${catchedError}`);
             }  
