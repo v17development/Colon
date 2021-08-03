@@ -1,0 +1,25 @@
+{
+  "name": "colon",
+  "version": "1.0.0",
+  "description": "Colon is de DevNL robot voor Discord.",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^13.0.0-dev.t1627906063.6e0ea02",
+    "dotenv": "^10.0.0",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v17development/Colon.git"
+  },
+  "author": "V17 Development V.O.F.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/v17development/Colon/issues"
+  },
+  "homepage": "https://github.com/v17development/Colon#readme"
+}
