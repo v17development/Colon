@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/XCR2lnU.png" alt="Elira Assistent" width="140" />
+<img src="https://i.imgur.com/XCR2lnU.png" alt="Colon Assistent" width="140" />
 
 # Colon Bot
 Hallo. Ik ben Colon! Ik ben DevNL's Ontwikkelaarsbutler! Wat houdt dat nou in? Nou, dat ik een beetje een manusje van alles ben. Ik help iedereen met alles en nog wat in de server om zo het forum te ondersteunen. Daarnaast heb ik ook wat handige moderatie-tools, maar ook wat leuke ontwikkelaarstools en weetjes paraat.

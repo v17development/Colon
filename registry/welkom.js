@@ -1,12 +1,12 @@
 /**
  * Colon Bot
- * Commands Registry \ link
+ * Commands Registry \ welkom
  * 
- * Commando: \link
+ * Commando: \welkom
  * Actie: Stuurt een bericht met de DevNL link of heel soms
  * een leuke Rickroll. Waarom niet?!
  * 
- * Opties: [STRING: CHOICES]
+ * Opties: [STRING: CHOICES, USER: USER]
  */
 module.exports = {
 	Name: 'welkom',
