@@ -19,6 +19,7 @@
 
 			try {
 				await DiscordClient.guilds.cache.get(process.env.GUILD_ID)?.commands.create(Registry.RegistryData);
+				console.log(`Commando ${Registry.Name} is nu geregistreerd.`);
 			} catch (RegistryError) {
 				console.log(`De registry kon het commando ${Registry.Name} niet registreren: ${RegistryError}.`)
 			}
