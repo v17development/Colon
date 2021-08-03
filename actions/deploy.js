@@ -1,15 +1,19 @@
 /**
  * Colon Bot
- * Command: link
+ * Action: deploy
  * 
- * Het Link Commando verwelkomt leden. Tenminste, als het getypt wordt. Het stuurt ook een
- * DevNL linkje of heel af en toe toch een rickroll..
+ * Het commando dat er voor zorgt dat het "Deploy" commando wordt geregistreerd voor Elira. Vaak maar
+ * eenmalig nodig. 
+ * 
+ * Benodigd hiervoor zijn:
+ * env.GUILD_ID
+ * env.GUILD_SUPER_ROLE
  */
  module.exports = {
 	Name: 'hallo',
-	Execute(interaction) {
+	async Execute(interaction) {
 		const InteractionOption = interaction.options.getString('type');
-		const OptionMessage;
+		var OptionMessage = null;
 
 		// Berichtentype
 		if(InteractionOption === 'msg_welcome') {

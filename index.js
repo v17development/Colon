@@ -19,6 +19,7 @@ DotEnv.config();
 // Defineer bestandsmappen
 const EventFiles = FileSystem.readdirSync('./events').filter(file => file.endsWith('.js'));
 const CommandFiles = FileSystem.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const ActionFiles = FileSystem.readdirSync('./actions').filter(file => file.endsWith('.js'));
 
 // Intents
 var DiscordIntents = [
@@ -31,14 +32,24 @@ var DiscordIntents = [
  * 
  * Colon doet nog even haar make-up op en meldt zich zodra ze klaar
  * voor de start is.
+ * 
+ * Commando's: Slash commando (Voorbeeld: /hallo)
+ * Actie's: Parsed String (Voorbeeld: !deploy)
  */
 const DiscordClient = new Client({ intents: DiscordIntents})
 DiscordClient.Commands = new Collection();
+DiscordClient.Actions = new Collection();
 
 // Bouw een collectie met commando's
 for (const File of CommandFiles) {
     const Command = require(`./commands/${File}`);
-    Client.Commands.Set(Command.Name, Command);
+    DiscordClient.Commands.set(Command.Name, Command);
+}
+
+// Bouw een collectie met actie's
+for (const File of ActionFiles) {
+    const Action = require(`./actions/${File}`);
+    DiscordClient.Actions.set(Action.Name, Action);
 }
 
 DiscordClient.once('ready', () => {

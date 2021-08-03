@@ -7,7 +7,7 @@
  */
 module.exports = {
 	Name: 'interactionCreate',
-	Execute(interaction, DiscordClient) {
+	async Execute(interaction, DiscordClient) {
         /**
          * Interacties
          * 
@@ -21,7 +21,7 @@ module.exports = {
         if(!DiscordClient.Commands.has(interaction.commandName)) return;
 
         try {
-            await DiscordClient.Commands.get(interaction.commandName).execute(interaction);
+            await DiscordClient.Commands.get(interaction.commandName).Execute(interaction, DiscordClient);
         } catch (catchedError) {
             await interaction.reply({ 
                 content: 'Oh nee😞. Ik herken dit commando niet. Weet je zeker dat je het goed hebt getypt?',
