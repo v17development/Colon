@@ -21,14 +21,18 @@ module.exports = {
         // Gepersonaliseerd op de gebruiker met zijn of haar data.
         const userEmbed = {
             color: 0xe84393,
-            title: 'Informatie over: ' + InteractionUser.username,
+            title: InteractionUser.username,
             thumbnail: {
                 url: InteractionUser.displayAvatarURL(),
             },
             fields: [
                 {
-                    name: 'ID',
+                    name: 'id',
                     value: InteractionUser.id,
+                },
+                {
+                    name: 'discriminator',
+                    value: InteractionUser.discriminator,
                 }
             ],
             timestamp: new Date(),
@@ -36,7 +40,7 @@ module.exports = {
                 text: 'Colon',
                 icon_url: 'https://i.imgur.com/XCR2lnU.png',
             },
-            description: 'Pascal wilt graag spruitjes eten met Colon.',
+            description: 'Hieronder tonen we de informatie over **' + InteractionUser.username + '** dat bij ons bekend is.',
         };
 
         // Verstuur het bericht inclusief de embed.
