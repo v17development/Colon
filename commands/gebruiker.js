@@ -35,7 +35,7 @@ module.exports = {
                 },
                 {
                     name: 'Status',
-                    value: 'Kopje koffie, de status.',
+                    value: 'status',
                 },
                 {
                     name: 'Discord-rollen',
@@ -47,7 +47,7 @@ module.exports = {
                 },
                 {
                     name: 'Lid van de Discord-server sinds',
-                    value: 'datum server gejoind',
+                    value: 'datum',
                 }
             ],
             timestamp: new Date(),

@@ -25,14 +25,32 @@ module.exports = {
                 {
                     name: 'Server-eigenaar',
                     value: `eigenaar`,
+                    inline: true,
                 },
                 {
                     name: 'Aantal Discord-leden ',
                     value: `**${interaction.guild.members.cache.filter(member => !member.user.value).size}** leden`,
+                    inline: true,
                 },
                 {
                     name: 'Aantal Discord-bots',
                     value: `**${interaction.guild.members.cache.filter(member => !member.user.bot).size}** bots`,
+                    inline: true,
+                },
+                {
+                    name: 'Website',
+                    value: '[DevNL.nl](https://devnl.nl)',
+                    inline: true,
+                },
+                {
+                    name: 'Eigena(a)r(en)',
+                    value: '[Jasper](https://www.devnl.nl/u/Jasper) en [Pascal](https://www.devnl.nl/u/Pascal)',
+                    inline: true,
+                },
+                {
+                    name: 'Team',
+                    value: '[Mitchel](https://www.devnl.nl/u/Mitchel)',
+                    inline: true,
                 }
             ],
             timestamp: new Date(),
