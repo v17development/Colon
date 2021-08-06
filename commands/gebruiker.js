@@ -32,22 +32,27 @@ module.exports = {
                 {
                     name: 'Over ' + InteractionUser.username,
                     value: 'De over mij van de gebruiker (indien beschikbaar)',
+                    inline: false,
                 },
                 {
                     name: 'Status',
                     value: 'status',
+                    inline: false,
                 },
                 {
                     name: 'Discord-rollen',
                     value: 'Rol 1 | Rol 2 | Rol 3',
+                    inline: false,
                 },
                 {
                     name: 'DevNL-account',
-                    value: 'Naampje met linkje (indien mogelijk) anders: Gebruiker heeft geen account op DevNL.',
+                    value: '[Mitchel](https://www.devnl.nl/u/Mitchel) anders: Gebruiker heeft geen account op DevNL.',
+                    inline: true,
                 },
                 {
-                    name: 'Lid van de Discord-server sinds',
+                    name: 'Discord-lid sinds',
                     value: 'datum',
+                    inline: true,
                 }
             ],
             timestamp: new Date(),
