@@ -28,7 +28,7 @@ module.exports = {
                 },
                 {
                     name: 'Aantal Discord-leden ',
-                    value: `**${interaction.guild.memberCount}** leden`,
+                    value: `**${interaction.guild.members.cache.filter(member => !member.user.value).size}** leden`,
                 },
                 {
                     name: 'Aantal Discord-bots',
