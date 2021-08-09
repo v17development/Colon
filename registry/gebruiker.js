@@ -16,7 +16,7 @@ module.exports = {
                 name: 'gebruiker',
                 type: 'USER',
                 description: 'De gebruiker waar je informatie over wilt zien.',
-                required: false,
+                required: true,
             }]
     }
 };

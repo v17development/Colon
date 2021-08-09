@@ -20,19 +20,39 @@ module.exports = {
         // Embed die we tonen in de server met de informatie uit de InteractionUser.
         // Gepersonaliseerd op de gebruiker met zijn of haar data.
         const userEmbed = {
-            color: 0xe84393,
-            title: InteractionUser.username,
+            color: 0xe74c3c,
+            author: {
+                name: InteractionUser.username,
+                icon_url: InteractionUser.displayAvatarURL(),
+            },
             thumbnail: {
                 url: InteractionUser.displayAvatarURL(),
             },
             fields: [
                 {
-                    name: 'id',
-                    value: InteractionUser.id,
+                    name: 'Over ' + InteractionUser.username,
+                    value: 'De over mij van de gebruiker (indien beschikbaar)',
+                    inline: false,
                 },
                 {
-                    name: 'discriminator',
-                    value: InteractionUser.discriminator,
+                    name: 'Status',
+                    value: 'status',
+                    inline: false,
+                },
+                {
+                    name: 'Discord-rollen',
+                    value: 'Rol 1 | Rol 2 | Rol 3',
+                    inline: false,
+                },
+                {
+                    name: 'DevNL-account',
+                    value: '[Mitchel](https://www.devnl.nl/u/Mitchel) anders: Gebruiker heeft geen account op DevNL.',
+                    inline: true,
+                },
+                {
+                    name: 'Discord-lid sinds',
+                    value: 'datum',
+                    inline: true,
                 }
             ],
             timestamp: new Date(),
