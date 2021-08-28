@@ -6,7 +6,8 @@
   "dependencies": {
     "discord.js": "^13.0.0-dev.t1627906063.6e0ea02",
     "dotenv": "^10.0.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.1"
   },
   "devDependencies": {},
   "scripts": {
