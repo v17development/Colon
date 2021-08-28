@@ -20,8 +20,24 @@ module.exports = {
         // Tonen welke data er in de InteractionUser zit in de console.
         console.log(await GuildCacheUser);
 
+        // Haal rollen op en maak een string.
+        const GuildMemberRoles = GuildCacheUser._roles;
+        const RoleArray = [];
+
+        for(const GuildRole of GuildMemberRoles) {
+            const RoleInformation = interaction.guild.roles.cache.get(GuildRole);
+            RoleArray.push(RoleInformation.name);
+        }
+
         // Zet Moment Locale.
         moment.locale("nl");  
+
+        // Snowflake Calculator.
+        var timestampFromSnowflake = (id) => {
+            return (id / 4194304) + 1420070400000;
+        };
+
+        console.log(GuildCacheUser);
 
         // Embed die we tonen in de server met de informatie uit de InteractionUser.
         // Gepersonaliseerd op de gebruiker met zijn of haar data.
@@ -36,33 +52,18 @@ module.exports = {
             },
             fields: [
                 {
-                    name: 'Over ' + InteractionUser.username,
-                    value: 'De over mij van de gebruiker (indien beschikbaar)',
+                    name: `Discord-rollen (${GuildMemberRoles.length})`,
+                    value: RoleArray.join(", "),
                     inline: false,
                 },
                 {
-                    name: 'Status',
-                    value: 'status',
-                    inline: false,
-                },
-                {
-                    name: 'Discord-rollen',
-                    value: 'Rol 1 | Rol 2 | Rol 3',
-                    inline: false,
-                },
-                {
-                    name: 'DevNL-account',
-                    value: '[Mitchel](https://www.devnl.nl/u/Mitchel) anders: Gebruiker heeft geen account op DevNL.',
-                    inline: false,
-                },
-                {
-                    name: 'Discord-server-lid sinds',
-                    value: moment(GuildCacheUser.JoinedAt).format('LLL'),
+                    name: 'DevNL-serverlid sinds',
+                    value: moment(GuildCacheUser.joinedTimestamp).format('LLL'),
                     inline: true,
                 },
                 {
                     name: 'Discord-lid sinds',
-                    value: 'datum',
+                    value: moment(timestampFromSnowflake(InteractionUser.id)).format("LLL"),
                     inline: true,
                 }
             ],
